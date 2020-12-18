@@ -1,0 +1,39 @@
+
+
+<div class="jumbotron container	w-50">
+  <h1>student detail</h1>
+  <h1 class="display-4">
+
+     <p>
+	   <strong>Name:</strong>
+	   <%= @student.name %>
+     </p>
+ </h1>
+ 
+  <p>
+    <strong>Roll no:</strong>
+    <%= @student.roll_no %>
+  </p>
+
+<%= link_to 'Edit', "#",{ 'data-toggle' => "modal", 'data-target' => "#edit_#{@student.id}", class:"btn btn-info"} %>
+
+          <div class="modal fade" id="edit_<%=@student.id%>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role = "document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">edit users</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                   <%=render 'edit',student:@student %>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+<%= link_to 'Back', students_path,class:"btn btn-info" %>
+
+</div>
