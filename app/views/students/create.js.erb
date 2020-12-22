@@ -1,2 +1,5 @@
-alert("record is created ");
+$("#student-data").append("<tr id ='tr_<%=@student.id%>'><%= j render (@student)%></tr>"); 
 $('#exampleModal').modal('hide');
+$('#exampleModal').on('hidden.bs.modal', function () {
+    $(this).find('form').trigger('reset');
+})

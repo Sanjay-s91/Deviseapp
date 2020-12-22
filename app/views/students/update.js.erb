@@ -1,0 +1,6 @@
+
+$("#tr_<%=@student.id%>").html("<%=  j render (@student)%>");
+$("#edit_<%= @student.id%>").modal('hide');
+
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();	

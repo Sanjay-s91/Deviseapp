@@ -22,6 +22,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    
   end
 
   # POST /students
@@ -31,10 +32,10 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.js
+       
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
-
+        format.js
       else
         format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }
@@ -49,6 +50,7 @@ class StudentsController < ApplicationController
       if @student.update(student_params)
         format.html { redirect_to students_path, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
+        format.js
       else
         format.html { render :edit }
         format.json { render json: @student.errors, status: :unprocessable_entity }
@@ -61,8 +63,10 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
+       format.js
       format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
+
     end
   end
 
